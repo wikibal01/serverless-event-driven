@@ -6,6 +6,14 @@ provider:
   region: us-west-2
   environment:
     DYNAMODB_TABLE: ${self:custom.tableName}
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+      Resource: arn:aws:dynamodb:us-west-2:*:table/${self:custom.tableName}
 
 functions:
   apiHandler:
