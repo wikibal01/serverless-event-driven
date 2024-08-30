@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 resource "aws_dynamodb_table" "the_table" {
-  name           = "my_table"
+  name           = "the_table"
   hash_key       = "id"
   billing_mode   = "PAY_PER_REQUEST"
 
