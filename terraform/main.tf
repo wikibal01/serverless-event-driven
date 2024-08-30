@@ -2,7 +2,7 @@ provider "aws" {
   region = "us-west-2"
 }
 
-resource "aws_dynamodb_table" "my_table" {
+resource "aws_dynamodb_table" "the_table" {
   name           = "my_table"
   hash_key       = "id"
   billing_mode   = "PAY_PER_REQUEST"
@@ -40,7 +40,7 @@ resource "aws_iam_role" "lambda_role" {
             "dynamodb:PutItem"
           ],
           Effect   = "Allow",
-          Resource = aws_dynamodb_table.my_table.arn
+          Resource = aws_dynamodb_table.the_table.arn
         }
       ]
     })
